@@ -1,0 +1,13 @@
+$color-text: black;
+$color-background: white;
+$color-base: red;
+$color-important: rgb(82, 1, 1);
+$color-warning: rgb(236, 176, 176);
+
+.shadow {
+  box-shadow: -10px 10px 15px $color-text;
+}
+
+.font-text {
+  font-family: Georgia, "Times New Roman", Times, serif;
+}

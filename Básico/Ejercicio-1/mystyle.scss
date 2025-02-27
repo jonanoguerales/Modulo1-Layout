@@ -1,0 +1,27 @@
+@use "base" as *;
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: white;
+}
+
+.container {
+  display: flex;
+  padding: 2rem;
+  gap: 1rem;
+}
+
+.container-1 {
+  @extend .container;
+  @include container-global($base-color-1, $text-color);
+}
+.container-2 {
+  @extend .container;
+  @include container-global($base-color-2, $text-color);
+}
+.container-3 {
+  @extend .container;
+  @include container-global($base-color-3, $text-color);
+}

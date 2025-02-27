@@ -1,0 +1,13 @@
+$color-text: black;
+$color-background: white;
+$color-base: blue;
+$color-important: rgb(0, 0, 87);
+$color-warning: rgb(61, 220, 241);
+
+.shadow {
+  box-shadow: 5px 10px 15px $color-text;
+}
+
+.font-text {
+  font-family: "Courier New", Courier, monospace;
+}

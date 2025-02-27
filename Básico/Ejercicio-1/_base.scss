@@ -1,0 +1,34 @@
+$base-color-1: red;
+$base-color-2: blue;
+$base-color-3: green;
+$text-color: white;
+
+@mixin container-global($bg-color, $color) {
+  .box {
+    padding: 1rem;
+  }
+  .base-color {
+    background-color: $bg-color;
+    & .color-box-text {
+      color: $color;
+    }
+  }
+  @for $j from 1 through 4 {
+    .lighten-#{$j} {
+      background-color: lighten($bg-color, $j * 10%);
+      //Aqui he usado complement darken, ya que con lighten no se ve bien el texto con el fondo, no sé si será una buena práctica.
+      & .color-box-text {
+        color: complement(darken($bg-color, $j * 10%));
+      }
+    }
+  }
+  @for $j from 1 through 4 {
+    .darken-#{$j} {
+      background-color: darken($bg-color, $j * 10%);
+      //Aqui he usado el inverso al igual que arriba, complement lighten, ya que con darken no se ve bien el texto con el fondo.
+      & .color-box-text {
+        color: complement(lighten($bg-color, $j * 10%));
+      }
+    }
+  }
+}

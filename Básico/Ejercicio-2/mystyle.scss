@@ -1,0 +1,55 @@
+//Para cambiar entre temas comenta y descomenta el archivo del tema que deseas usar.
+@use "base-tema-1" as *;
+//@use "base-tema-2" as *;
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: $color-background;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  padding: 5rem;
+  & .box {
+    width: 80px;
+    height: 40px;
+    color: $color-text;
+    padding: 1rem;
+    border: 1px solid $color-text;
+    font-weight: 600;
+    font-size: small;
+
+    .color-box-text {
+      @extend .font-text;
+    }
+  }
+  & .box-base{
+    background-color: $color-base;
+  }
+  & .box-important{
+    background-color: $color-important;
+  }
+  & .box-warning{
+    background-color: $color-warning;
+  }
+
+  .box-text {
+    @extend .font-text;
+    display: flex;
+    flex-direction: column;
+    color: $color-text;
+    padding-block: 1rem;
+    gap: 1rem;
+    font-size: small;
+    & .text-secundario {
+      font-weight: 600;
+    }
+  }
+  .box-shadow {
+    @extend .shadow;
+  }
+}
+
