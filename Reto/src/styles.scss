@@ -1,64 +1,127 @@
 @use "base" as *;
-
+html {
+  height: 100vh;
+}
 body {
   margin: 0;
-  padding: 1rem 2rem;
+  padding: 0;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  background-color:$color-bg;
-  height: 100vh;
+  background-color: $color-bg;
+  height: 100%;
   font-family: "Jost", serif;
   color: $color-white;
-  gap: 3rem;
+  gap: 1rem;
+  position: relative;
 }
-
+.section-title {
+  font-size: 1.5rem;
+  font-weight: normal;
+}
 header {
+  position: sticky;
+  top: 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  background-color: $color-bg;
+  padding: 1rem 2rem;
   .header-logo {
     display: flex;
     align-items: center;
     gap: 1rem;
     font-size: 1.3rem;
     font-weight: bold;
-    img{
+    img {
       width: 100px;
     }
   }
   .header-buttons {
     display: flex;
     gap: 1rem;
-    div{
+    div {
       padding: 1rem;
-      &:hover{
+      &:hover {
         background-color: $color-white;
         color: $color-black;
         border-radius: 5px;
       }
     }
-
   }
 }
-main{
+main {
+  flex: 1;
   display: flex;
   flex-direction: column;
+  padding: 1rem 2rem;
   .section-title #top-text::after {
-    content: "5"; 
+    content: "5";
     font-weight: bold;
   }
-  .top{
+  .top {
     display: flex;
     flex-direction: row-reverse;
     justify-content: center;
     gap: 1rem;
-    .top-item{
+    .top-item {
       min-width: 225px;
+      img {
+        width: 100%;
+      }
+    }
+  }
+  .first,
+  .second {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.3rem;
+    margin-bottom: 2rem;
+    .item {
+      flex: 1 1 250px;
+      img {
+        width: 100%;
+        max-width: 631px;
+        max-height: 400px;
+        &:hover {
+          transform: scale(1.1);
+          transition: transform 0.5s ease;
+        }
+      }
     }
   }
 }
 
-@media screen and (max-width: 1280) {
-
+@media screen and (max-width: $breakpoint-xxl) {
+  .section-title {
+    font-size: 2rem;
+  }
+  header {
+    .header-logo {
+      .platform-title {
+        display: none;
+      }
+      img {
+        width: 135px;
+      }
+    }
+    .header-buttons {
+      div {
+        font-size: 1.3rem;
+      }
+    }
+  }
+  main {
+    .section-title #top-text::after {
+      content: "3";
+    }
+    .top {
+      flex-wrap: wrap-reverse;
+      .top-item:first-child,
+      .top-item:nth-child(2) {
+        display: none;
+      }
+    }
+  }
 }
